@@ -428,6 +428,14 @@ func (c *StoreClient) ParseSignedTransactions(transactions []string) ([]*JWSTran
 	return result, nil
 }
 
+func (c *StoreClient) ParseSignedTransaction(transaction string) (*JWSTransaction, error) {
+	trans, err := c.parseSignedTransaction(transaction)
+	if err == nil && trans != nil {
+		return trans, nil
+	}
+	return nil, err
+}
+
 // ParseJWSEncodeString parse the jws encode string, such as JWSTransaction and JWSRenewalInfoDecodedPayload
 func (c *StoreClient) ParseJWSEncodeString(jwsEncode string) (interface{}, error) {
 	// Split the JWS format string into its three parts
