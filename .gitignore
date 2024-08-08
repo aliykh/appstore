@@ -8,3 +8,5 @@ _obj
 _test
 
 .idea
+
+vendor/
